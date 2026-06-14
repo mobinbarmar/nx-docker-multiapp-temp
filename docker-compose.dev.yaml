@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build:
+      context: .
+      dockerfile: apps/api-gateway/Dockerfile
+    container_name: nestjs-api-gateway
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+    volumes:
+      - ./apps/api-gateway:/usr/src/app/apps/api-gateway
+      - ./libs:/usr/src/app/libs
+      - ./package.json:/usr/src/app/package.json
+      - ./tsconfig.base.json:/usr/src/app/tsconfig.base.json
+      - ./node_modules:/usr/src/app/node_modules
+    networks:
+      - app-network
+
+  blog-service:
+    build:
+      context: .
+      dockerfile: apps/blog-service/Dockerfile
+    container_name: nestjs-blog-service
+    ports:
+      - "3001:3001"
+      - "9230:9229"
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+    volumes:
+      - ./apps/blog-service:/usr/src/app/apps/blog-service
+      - ./libs:/usr/src/app/libs
+      - ./package.json:/usr/src/app/package.json
+      - ./tsconfig.base.json:/usr/src/app/tsconfig.base.json
+      - ./node_modules:/usr/src/app/node_modules
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

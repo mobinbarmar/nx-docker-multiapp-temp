@@ -6,6 +6,25 @@
 
 [Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/nest?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
 
+## Build and run with docker
+# Build and start both apps
+docker compose -f docker-compose.dev.yaml up --build
+
+# Start in background
+docker compose -f docker-compose.dev.yaml up -d
+
+# Stop containers
+docker compose -f docker-compose.dev.yaml down
+
+# View logs
+docker compose -f docker-compose.dev.yaml logs -f
+
+# Test API Gateway
+curl http://localhost:3000/api
+
+# Test Blog blog
+curl http://localhost:3001/api
+
 ## Run tasks
 
 To run the dev server for your app, use:
