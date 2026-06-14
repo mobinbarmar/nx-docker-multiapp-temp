@@ -1,0 +1,1 @@
+export const test = 'This is a complete test!'

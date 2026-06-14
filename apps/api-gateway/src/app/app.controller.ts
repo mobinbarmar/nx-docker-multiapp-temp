@@ -1,5 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
+import { test } from '@test-workspace/my-nest-lib'
 
 @Controller()
 export class AppController {
@@ -7,6 +8,7 @@ export class AppController {
 
   @Get()
   getData() {
-    return this.appService.getData();
+    console.log(test)
+    return test
   }
 }

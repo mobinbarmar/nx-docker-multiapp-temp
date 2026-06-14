@@ -1,17 +1,17 @@
 {
-  "name": "test-workspace-e2e",
+  "name": "blog-service-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "implicitDependencies": ["test-workspace"],
+  "implicitDependencies": ["blog-service"],
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
       "options": {
-        "jestConfig": "apps/test-workspace-e2e/jest.config.cts",
+        "jestConfig": "apps/blog-service-e2e/jest.config.cts",
         "passWithNoTests": true
       },
-      "dependsOn": ["test-workspace:build", "test-workspace:serve"]
+      "dependsOn": ["blog-service:build", "blog-service:serve"]
     }
   }
 }
