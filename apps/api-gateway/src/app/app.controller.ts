@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
-import { test } from '@test-workspace/my-nest-lib'
+import { test } from '@test-workspace/my-nest-lib';
 
 @Controller()
 export class AppController {
@@ -8,7 +8,7 @@ export class AppController {
 
   @Get()
   getData() {
-    console.log(test)
-    return test
+    console.log(test + 'hi1212work');
+    return test;
   }
 }

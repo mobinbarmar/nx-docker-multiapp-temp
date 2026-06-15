@@ -1,0 +1,26 @@
+services:
+  api-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_NAME: api-gateway
+        PORT: '3000'
+    ports:
+      - '3000:3000'
+    environment:
+      PORT: '3000'
+      NODE_ENV: production
+
+  blog-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_NAME: blog-service
+        PORT: '3001'
+    ports:
+      - '3001:3001'
+    environment:
+      PORT: '3001'
+      NODE_ENV: production

@@ -1,0 +1,7 @@
+node_modules
+dist
+.nx
+.git
+coverage
+**/*.spec.ts
+**/*.e2e-spec.ts
